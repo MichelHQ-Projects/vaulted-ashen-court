@@ -1,0 +1,1 @@
+[{"id": "weighted_chains", "name": "Weighted Chains", "tier": 1, "description": "Move speed -15%", "effect": {"stat": "move_speed", "modifier": -0.15}}]

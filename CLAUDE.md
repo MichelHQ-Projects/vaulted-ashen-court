@@ -1,18 +1,17 @@
-# Claude Code Game Studios -- Game Studio Agent Architecture
+# CLAUDE.md — VAULTED: The Ashen Court
+
+> Read this file at every session start. Do not modify without Design Partner approval.
 
 Indie game development managed through 48 coordinated Claude Code subagents.
 Each agent owns a specific domain, enforcing separation of concerns and quality.
 
 ## Technology Stack
 
-- **Engine**: [CHOOSE: Godot 4 / Unity / Unreal Engine 5]
-- **Language**: [CHOOSE: GDScript / C# / C++ / Blueprint]
+- **Engine**: Godot 4
+- **Language**: GDScript
 - **Version Control**: Git with trunk-based development
-- **Build System**: [SPECIFY after choosing engine]
-- **Asset Pipeline**: [SPECIFY after choosing engine]
-
-> **Note**: Engine-specialist agents exist for Godot, Unity, and Unreal with
-> dedicated sub-specialists. Use the set matching your engine.
+- **Build System**: Godot 4 headless export
+- **Asset Pipeline**: Godot 4 native importer — res://assets/ (sprites, tiles, audio, ui)
 
 ## Project Structure
 
@@ -42,9 +41,6 @@ Every task follows: **Question -> Options -> Decision -> Draft -> Approval**
 
 See `docs/COLLABORATIVE-DESIGN-PRINCIPLE.md` for full protocol and examples.
 
-> **First session?** If the project has no engine configured and no game concept,
-> run `/start` to begin the guided onboarding flow.
-
 ## Coding Standards
 
 @.claude/docs/coding-standards.md
@@ -52,3 +48,59 @@ See `docs/COLLABORATIVE-DESIGN-PRINCIPLE.md` for full protocol and examples.
 ## Context Management
 
 @.claude/docs/context-management.md
+
+---
+
+## Session Start Protocol
+
+1. Read baseline.md
+2. Read CURRENT_STATE.md
+3. Read Phases/Phase_X.md (current phase only)
+
+## Session End Protocol — Mandatory
+
+1. Overwrite CURRENT_STATE.md with current build state
+2. Append completed work unit to Phases/Phase_X.md
+3. Update ASSETS_NEEDED.md if new assets identified
+
+---
+
+## Context File Rules
+
+| File | Rule |
+|---|---|
+| baseline.md | Read only. Never modified. |
+| CURRENT_STATE.md | Overwrite at session end. Always. |
+| Phases/Phase_X.md | Append only. Never rewrite past sections. |
+| CLAUDE.md | Read only. Never modified without Design Partner approval. |
+
+---
+
+## Code Rules
+
+- GDScript only. No C#.
+- Seeded RNG always — never unseeded. Seed from run start.
+- All game data in JSON files under res://data/
+- No hardcoded stats, damage, or speeds — always reference constants or data files.
+- Tile size: 64×32 isometric
+- Camera: fixed 45°, no rotation
+- All cross-system communication via event_bus.gd — never direct node refs across systems.
+- Never add signals not in baseline.md without logging the decision first.
+
+---
+
+## Agent Roles — Phase 1
+
+| Agent | Owns |
+|---|---|
+| Engine Architect | 1.1 Project Scaffold, 1.2 Player Controller |
+| Systems Designer | 1.3 Enemy AI, 1.4 Card System, 1.5 Floor Controller |
+| UI/UX Builder | 1.6 HUD & Card Pick, 1.7 Boss/Death/Menu |
+| QA / Integration | 1.8 Integration, QA, Export |
+
+---
+
+## Pending Design Decisions
+
+None. Log here as they arise.
+Format: [ID] — [Question] — Assumed: [assumption] — Needs: Carlos review

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "iron_echo",
+    "name": "Iron Echo",
+    "type": "augment",
+    "rune_color": "blue",
+    "description": "Every 5th attack releases a knockback shockwave",
+    "emits": ["shockwave"],
+    "consumes": ["attack_count"],
+    "tags": ["attack_modifier", "knockback"],
+    "effect": {
+      "trigger": "every_nth_attack",
+      "n": 5,
+      "action": "shockwave_knockback",
+      "radius": 120,
+      "force": 300
+    }
+  }
+]

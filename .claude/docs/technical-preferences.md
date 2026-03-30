@@ -1,48 +1,30 @@
-# Technical Preferences
+# Technical Preferences — VAULTED: The Ashen Court
 
-<!-- Populated by /setup-engine. Updated as the user makes decisions throughout development. -->
-<!-- All agents reference this file for project-specific standards and conventions. -->
-
-## Engine & Language
-
-- **Engine**: [TO BE CONFIGURED — run /setup-engine]
-- **Language**: [TO BE CONFIGURED]
-- **Rendering**: [TO BE CONFIGURED]
-- **Physics**: [TO BE CONFIGURED]
+## Engine
+- Godot 4 (GDScript only, no C#)
+- Renderer: gl_compatibility (widest hardware support for Steam)
+- Physics: Godot default 2D physics
 
 ## Naming Conventions
-
-- **Classes**: [TO BE CONFIGURED]
-- **Variables**: [TO BE CONFIGURED]
-- **Signals/Events**: [TO BE CONFIGURED]
-- **Files**: [TO BE CONFIGURED]
-- **Scenes/Prefabs**: [TO BE CONFIGURED]
-- **Constants**: [TO BE CONFIGURED]
+- Files: snake_case (player.gd, floor_controller.gd)
+- Classes: PascalCase (class_name PlayerController)
+- Signals: snake_case past tense (player_died, card_picked)
+- Constants: SCREAMING_SNAKE_CASE (MAX_HP, ATTACK_SPEED)
+- Variables: snake_case (current_floor, active_cards)
 
 ## Performance Budgets
+- Target: 60fps on mid-range hardware (GTX 1060 / RX 580 equivalent)
+- Max enemies on screen simultaneously: 40
+- Max particle emitters active: 10
+- Draw calls per frame budget: 200
 
-- **Target Framerate**: [TO BE CONFIGURED]
-- **Frame Budget**: [TO BE CONFIGURED]
-- **Draw Calls**: [TO BE CONFIGURED]
-- **Memory Ceiling**: [TO BE CONFIGURED]
+## Architecture Rules
+- All cross-system signals via event_bus.gd autoload
+- All game data in res://data/ JSON files
+- No direct node references across scene boundaries
+- Seeded RNG always — seed from run_manager at run start
+- Autoloads: EventBus, GameData, RunManager, CardManager
 
-## Testing
-
-- **Framework**: [TO BE CONFIGURED]
-- **Minimum Coverage**: [TO BE CONFIGURED]
-- **Required Tests**: Balance formulas, gameplay systems, networking (if applicable)
-
-## Forbidden Patterns
-
-<!-- Add patterns that should never appear in this project's codebase -->
-- [None configured yet — add as architectural decisions are made]
-
-## Allowed Libraries / Addons
-
-<!-- Add approved third-party dependencies here -->
-- [None configured yet — add as dependencies are approved]
-
-## Architecture Decisions Log
-
-<!-- Quick reference linking to full ADRs in docs/architecture/ -->
-- [No ADRs yet — use /architecture-decision to create one]
+## Tile & Camera
+- Tile size: 64×32 isometric
+- Camera: fixed 45°, no rotation, no zoom during gameplay

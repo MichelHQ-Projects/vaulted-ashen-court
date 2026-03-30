@@ -13,7 +13,8 @@
       "n": 5,
       "action": "shockwave_knockback",
       "radius": 120,
-      "force": 300
+      "force": 300,
+      "damage": 10
     }
   }
 ]

@@ -1,1 +1,112 @@
-[gd_scene format=3 uid="uid://bavaulted_death_screen"]
+[gd_scene load_steps=2 format=3 uid="uid://bavaulted_death_screen"]
+
+[ext_resource type="Script" path="res://scripts/ui/death_screen.gd" id="1_death_screen"]
+
+[node name="DeathScreen" type="CanvasLayer"]
+layer = 30
+process_mode = 3
+visible = false
+script = ExtResource("1_death_screen")
+
+[node name="Overlay" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = -380.0
+offset_top = -300.0
+offset_right = 380.0
+offset_bottom = 300.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+text = "YOU HAVE FALLEN"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0.85, 0.2, 0.2, 1)
+
+[node name="Separator" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="ScoreSection" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ScoreSectionTitle" type="Label" parent="Panel/VBox/ScoreSection"]
+layout_mode = 2
+text = "Run Summary"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.65, 0.6, 0.5, 1)
+
+[node name="FloorsLabel" type="Label" parent="Panel/VBox/ScoreSection"]
+layout_mode = 2
+text = "Floors Cleared: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+
+[node name="KillsLabel" type="Label" parent="Panel/VBox/ScoreSection"]
+layout_mode = 2
+text = "Enemies Killed: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+
+[node name="CursesLabel" type="Label" parent="Panel/VBox/ScoreSection"]
+layout_mode = 2
+text = "Curses Carried: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+
+[node name="TotalLabel" type="Label" parent="Panel/VBox/ScoreSection"]
+layout_mode = 2
+text = "Total Score: 0"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+
+[node name="Separator2" type="HSeparator" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="RelicSection" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RelicSectionTitle" type="Label" parent="Panel/VBox/RelicSection"]
+layout_mode = 2
+text = "Choose a Legacy Relic"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.65, 0.6, 0.5, 1)
+
+[node name="RelicContainer" type="HBoxContainer" parent="Panel/VBox/RelicSection"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 20
+
+[node name="NewRunButton" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+text = "Begin New Run"
+custom_minimum_size = Vector2(200, 44)
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.9, 0.85, 0.7, 1)
+size_flags_horizontal = 4

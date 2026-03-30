@@ -1,1 +1,13 @@
-[{"id": "weighted_chains", "name": "Weighted Chains", "tier": 1, "description": "Move speed -15%", "effect": {"stat": "move_speed", "modifier": -0.15}}]
+[
+  {
+    "id": "weighted_chains",
+    "name": "Weighted Chains",
+    "tier": 1,
+    "description": "Move speed reduced by 15%",
+    "effect": {
+      "type": "stat_modifier",
+      "stat": "move_speed",
+      "modifier": -0.15
+    }
+  }
+]

@@ -1,1 +1,22 @@
-[{"id": "shambler", "name": "Shambler", "hp": 45, "behavior": "slow_melee_swarm"}]
+[
+  {
+    "id": "shambler",
+    "name": "Shambler",
+    "hp": 45,
+    "move_speed": 60,
+    "attack_damage": 8,
+    "attack_range": 40,
+    "attack_cooldown": 1.5,
+    "behavior": "slow_melee_swarm"
+  },
+  {
+    "id": "boss_knight",
+    "name": "Boss Knight",
+    "hp": 350,
+    "move_speed": 100,
+    "attack_damage": 25,
+    "attack_range": 60,
+    "attack_cooldown": 1.0,
+    "behavior": "boss_three_phase"
+  }
+]

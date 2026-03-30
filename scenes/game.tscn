@@ -1,1 +1,16 @@
-[gd_scene format=3 uid="uid://b2vaulted_game"]
+[gd_scene load_steps=2 format=3 uid="uid://b2vaulted_game"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_game"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="FloorContainer" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = false
+drag_horizontal_enabled = false
+drag_vertical_enabled = false
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 10

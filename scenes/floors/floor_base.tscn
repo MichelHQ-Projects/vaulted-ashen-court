@@ -1,1 +1,24 @@
-[gd_scene format=3 uid="uid://bcvaulted_floor_base"]
+[gd_scene load_steps=2 format=3 uid="uid://bcvaulted_floor_base"]
+
+[ext_resource type="Script" path="res://scripts/floor_base.gd" id="1_flrbase"]
+
+[node name="FloorBase" type="Node2D"]
+script = ExtResource("1_flrbase")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+position = Vector2(0, 0)
+
+[node name="EnemySpawn0" type="Marker2D" parent="."]
+position = Vector2(160, -64)
+
+[node name="EnemySpawn1" type="Marker2D" parent="."]
+position = Vector2(-160, -64)
+
+[node name="EnemySpawn2" type="Marker2D" parent="."]
+position = Vector2(0, -128)
+
+[node name="EnemySpawn3" type="Marker2D" parent="."]
+position = Vector2(256, 0)
+
+[node name="EnemySpawn4" type="Marker2D" parent="."]
+position = Vector2(-256, 0)

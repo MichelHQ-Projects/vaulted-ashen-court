@@ -1,7 +1,7 @@
 # Technical Preferences — VAULTED: The Ashen Court
 
-## Engine
-- Godot 4 (GDScript only, no C#)
+**Engine**: Godot 4
+- GDScript only, no C#
 - Renderer: gl_compatibility (widest hardware support for Steam)
 - Physics: Godot default 2D physics
 
